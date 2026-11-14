@@ -80,7 +80,7 @@ tree-sitter-ohh and point `treesit-extra-load-path' at the result."
 
    ;; OHH-specific: the four well-known enum-valued keys get a distinct
    ;; face on their VALUE, text-matched the same way tree-sitter-ohh's
-   ;; own highlights.scm does .
+   ;; own highlights.scm does.
    ;; `:match' (a regexp), not `:any-of?', `:any-of?' compiles in the
    ;; string query syntax but is silently refused in this sexp form on
    ;; this Emacs build (treesit-font-lock-rules-mismatch, feature

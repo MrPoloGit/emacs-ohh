@@ -14,6 +14,12 @@ split as every other editor package in this project.
 (setq ohh-ts-mode-registry-path "/path/to/ohh/registry") ; required, no default
 ```
 
+**Not published to MELPA (or any other package archive).** This repo
+is pushed to `github.com/MrPoloGit/emacs-ohh`, usable today via
+`straight.el`/`use-package :vc`/`package-vc-install` pointing at that
+URL, or the manual `load-path` above, but it hasn't been submitted to
+MELPA, nothing has an MELPA recipe yet.
+
 ## What's implemented (L0, highlighting)
 
 - `.ohh` → `ohh-ts-mode` via `auto-mode-alist`.
@@ -38,8 +44,16 @@ split as every other editor package in this project.
 
 **Grammar binary is bundled**, macOS arm64 only, `parser/libtree-sitter-ohh.dylib` is the exact same compiled dylib
 `nvim-ohh/parser/ohh.so` ships, renamed to Emacs's convention and
-re-confirmed to load under `treesit`. Rebuild `tree-sitter-ohh` for
-another platform.
+re-confirmed to load under `treesit`. On another platform, rebuild it
+yourself with the `tree-sitter` CLI (`npm install -g tree-sitter-cli`)
+and a C compiler, naming the output extension for your platform
+(Emacs's `treesit` picks the extension from its own
+`dynamic-library-suffixes`, `.so` on Linux, `.dll` on Windows):
+
+```sh
+tree-sitter build ../tree-sitter-ohh -o parser/libtree-sitter-ohh.so   # Linux
+tree-sitter build ../tree-sitter-ohh -o parser/libtree-sitter-ohh.dll  # Windows
+```
 
 ## What's implemented (L1, diagnostics, hover, completion)
 
