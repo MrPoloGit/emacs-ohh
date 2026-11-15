@@ -11,7 +11,7 @@ split as every other editor package in this project.
 ```elisp
 (add-to-list 'load-path "/path/to/emacs-ohh")
 (require 'ohh-ts-mode)
-(setq ohh-ts-mode-registry-path "/path/to/ohh/registry") ; required, no default
+(setq ohh-ts-mode-registry-path "/path/to/ohh-data/registry") ; required, no default
 ```
 
 **Not published to MELPA (or any other package archive).** This repo
@@ -69,7 +69,7 @@ interactive `eglot` handshake; everything here was tested in
 `test/ohh-ts-mode-tests.el` (ERT) checks real faces at real corpus
 positions (`holdem-cash-pokerstars.ohh`), the Imenu top-level-only
 filter, and that a run-it-twice hand (`run-it-twice.ohh`, two
-Flop/Turn/River rounds sharing street names, `ohh/registry/enums.json`'s
+Flop/Turn/River rounds sharing street names, `ohh-data/registry/enums.json`'s
 own documented edge case) still parses and produces a non-empty index
 rather than erroring. **All 7 checks pass.** Byte-compiles with zero
 warnings.

@@ -11,10 +11,10 @@
 (defconst ohh-ts-mode-tests--dir
   (file-name-directory (or load-file-name buffer-file-name)))
 (defconst ohh-ts-mode-tests--corpus-file
-  (expand-file-name "../../ohh/corpus/valid/holdem-cash-pokerstars.ohh"
+  (expand-file-name "../../ohh-data/corpus/valid/holdem-cash-pokerstars.ohh"
                      ohh-ts-mode-tests--dir))
 (defconst ohh-ts-mode-tests--run-it-twice-file
-  (expand-file-name "../../ohh/corpus/valid/run-it-twice.ohh" ohh-ts-mode-tests--dir))
+  (expand-file-name "../../ohh-data/corpus/valid/run-it-twice.ohh" ohh-ts-mode-tests--dir))
 
 (defmacro ohh-ts-mode-tests--with-corpus-buffer (var file &rest body)
   (declare (indent 2))
@@ -77,7 +77,7 @@ pair (player names, action amounts, ...), this is the point of the
 
 (ert-deftest ohh-ts-mode-tests-run-it-twice-file-parses-cleanly ()
   "A run-it-twice hand (two Flop/Turn/River rounds sharing street names,
-ohh/registry/enums.json's own documented edge case) still activates
+ohh-data/registry/enums.json's own documented edge case) still activates
 tree-sitter and produces a non-empty Imenu index, rather than erroring."
   (ohh-ts-mode-tests--with-corpus-buffer buf ohh-ts-mode-tests--run-it-twice-file
     (should (treesit-parser-list))

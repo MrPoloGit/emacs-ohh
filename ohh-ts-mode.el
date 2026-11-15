@@ -35,7 +35,7 @@
   :group 'ohh)
 
 (defcustom ohh-ts-mode-registry-path nil
-  "Path to the ohh/registry directory.
+  "Path to the ohh-data/registry directory.
 
 ohh-ls has no built-in default for this, same \"never approximate
 silently\" reasoning as `phh-ts-mode-registry-path'. You must set this
